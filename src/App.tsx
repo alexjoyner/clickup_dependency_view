@@ -3,8 +3,8 @@ import './App.css'
 
 function App() {
 	const [count, setCount] = useState(0)
-	const [API_KEY] = useState(localStorage.get('API_KEY'));
-	const [TARGET_VIEW_ID] = useState(localStorage.get('VIEW_ID'));
+	const [API_KEY] = useState(localStorage.getItem('API_KEY'));
+	const [TARGET_VIEW_ID] = useState(localStorage.getItem('VIEW_ID'));
 
 	useEffect(() => {
 		if (!API_KEY) {
@@ -28,7 +28,7 @@ function App() {
 				{
 					method: 'GET',
 					headers: {
-						Authorization: API_KEY
+						Authorization: `${API_KEY}`
 					}
 				}
 			);
