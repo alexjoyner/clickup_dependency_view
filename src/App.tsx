@@ -22,13 +22,16 @@ function App() {
 				page: '0'
 			}).toString();
 
-			const viewId = API_KEY;
+			const viewId = TARGET_VIEW_ID;
 			const resp = await fetch(
-				`https://api.clickup.com/api/v2/view/${viewId}/task?${query}`,
+				`https://hammerhead-app-8bkkt.ondigitalocean.app/https://api.clickup.com/api/v2/view/${viewId}/task?${query}`,
 				{
 					method: 'GET',
 					headers: {
-						Authorization: `${API_KEY}`
+						'Authorization': `${API_KEY}`,
+						'Content-Type': 'application/json',
+						'X-Requested-With': 'XMLHttpRequest',
+						'Connection': 'keep-alive'
 					}
 				}
 			);
